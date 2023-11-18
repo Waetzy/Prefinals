@@ -4,14 +4,25 @@
         <form name="form">
             Input: <input type="number" name="number" placeholder="Enter a number">
             <input type="button" value="Submit" onclick="prime()">
+            <p id="prime"> </p>
         </form>
         <script>
             function prime() {
-                var a = parseInt(document.form.number.value);
-                var result = a % 2 === 0 ? "Even" : "Odd";
-                var message = a + " is prime number";
-                document.getElementById("result").innerHTML = message;
-
+                var i,flag=0;
+                var p=" ";
+                var a=parseInt(document.form.number.value);
+                for(i=1;i<=a;i++)
+                {
+                    if(a%i==0)
+                    {
+                        flag+=1;
+                    }
+                if(flag==2)
+                {p=a+" is prime number"; }
+                
+                else{  p=a+" is not a prime number";}
+                }
+                var d=document.getElementById("prime").innerHTML=p;
                 var evenum = "";
                 var oddNum = "";
 
@@ -21,7 +32,7 @@
                     } else {
                         oddNum += i + " ";
                     }
-                }
+}
 
                 document.getElementById("even").innerHTML = "Even numbers: " + evenum.trim();
                 document.getElementById("odd").innerHTML = "Odd numbers: " + oddNum.trim();
